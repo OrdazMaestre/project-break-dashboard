@@ -5,6 +5,9 @@
 - Qué hace y como funciona `setInterval()` https://developer.mozilla.org/es/docs/Web/API/setInterval 
 
 */ 
+
+
+
 function updateClock() {
   const now = new Date();
 

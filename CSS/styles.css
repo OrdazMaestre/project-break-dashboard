@@ -105,6 +105,23 @@ body {
   transform: translateY(-4px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
 }
+/*todavia no hemos conseguido que el widget de las contraseñas actue igual al estar sobre la zona del link*/
+.widget-action {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #38bdf8;
+}
+
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
 
 
 /* ===================================== RELOJ ================================ */
@@ -131,4 +148,42 @@ body {
   color: #94a3b8;
   font-style: italic;
   line-height: 1.4;
+}
+
+/* ===================================== LINKS ================================ */
+#links-section {
+  position: relative;
+}
+
+#add-link-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  border: none;
+  background-color: #38bdf8;
+  color: #020617;
+  font-size: 20px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+#add-link-btn:hover {
+  background-color: #0ea5e9;
+}
+
+
+.widget-action .widget {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.widget-action .widget:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
 }
