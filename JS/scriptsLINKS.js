@@ -9,3 +9,142 @@
 
 
 */
+
+const STORAGE_KEY = "dashboard_links_v1"; 
+const linksList = document.getElementById("links-list");
+const addBtn = document.getElementById("add-link-btn");
+const form = document.getElementById("add-link-form");
+const inputName = document.getElementById("link-name");
+const inputUrl = document.getElementById("link-url");
+
+let links = [];
+
+// CARGAR enlaces desde localStorage
+  function loadLinks() {
+
+    const raw = localStorage.getItem(STORAGE_KEY);
+
+    if (!raw) {
+      links = [];
+      return;
+    }
+    try {
+      links = JSON.parse(raw);
+      if (!Array.isArray(links)) links = [];
+    } 
+    catch (e) {
+      console.error("Error parseando enlaces guardados:", e);
+      links = [];
+    }
+
+  }
+
+// GUARDAR enlaces en localStorage
+
+  function saveLinks() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(links));
+  }
+
+// RENDER: crear un <li> con el enlace y botón borrar
+
+  function renderLinkItem(link) {
+    const li = document.createElement("li");
+    li.className = "link-item";
+    li.dataset.id = String(link.id);
+
+    const a = document.createElement("a");
+    a.href = link.url;
+    a.textContent = link.title;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.title = link.url;
+
+    const delBtn = document.createElement("button");
+    delBtn.type = "button";
+    delBtn.className = "link-delete-btn";
+    delBtn.ariaLabel = `Borrar ${link.title}`;
+    delBtn.innerHTML = "✕";
+
+    // estructura: <li><a>title</a> <button>✕</button></li>
+    li.appendChild(a);
+    li.appendChild(delBtn);
+
+    return li;
+  }
+
+// RENDER ALL: vacía la lista y pinta todos los links
+
+  function renderAll() {
+    linksList.innerHTML = "";
+    if (links.length === 0) {
+      const empty = document.createElement("li");
+      empty.className = "links-empty";
+      empty.textContent = "No hay enlaces. Usa + para añadir uno.";
+      linksList.appendChild(empty);
+      return;
+    }
+
+    links.forEach(link => {
+      const li = renderLinkItem(link);
+      linksList.appendChild(li);
+    });
+  }
+
+// Añadir / mostrar form
+
+  addBtn.addEventListener("click", () => {
+    form.hidden = !form.hidden;
+    if (!form.hidden) {
+      inputName.focus();
+    }
+  });
+
+// SUBMIT: crear nuevo enlace
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const title = inputName.value.trim();
+    const url = inputUrl.value.trim();
+
+    if (!title || !url) return;
+
+    // Crear objeto link con id único (timestamp)
+    const newLink = {
+      id: Date.now(),
+      title,
+      url
+    };
+
+    links.push(newLink);  // actualizar estado
+    saveLinks();          // persistir
+    renderAll();          // actualizar UI
+
+    form.reset();
+    form.hidden = true;
+  });
+
+// DELETE usando event delegation
+
+  linksList.addEventListener("click", (e) => {
+    const btn = e.target.closest(".link-delete-btn");
+    if (!btn) return;
+
+    const li = btn.closest("li");
+    if (!li) return;
+
+    const id = Number(li.dataset.id);
+
+    // Filtrar el array para quitar el enlace con ese id
+    links = links.filter(item => item.id !== id);
+    saveLinks();
+    renderAll();
+  });
+
+// Inicialización al cargar la página
+
+  function init() {
+    loadLinks();
+    renderAll();
+  }
+  init();

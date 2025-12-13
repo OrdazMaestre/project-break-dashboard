@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINKS</title>
+        <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+   <section id="links-section" class="widget">
+       <h2>ENLACES</h2>
+       <ul id="links-list"></ul>
+       <button id="add-link-btn" aria-label="Añadir enlace">+</button>
+       <a href="links.html" class="widget-action hover-lift">Gestionar enlaces</a> 
+         <form id="add-link-form" hidden>
+            <input
+               type="text"
+               id="link-name"
+               placeholder="Nombre del enlace"
+               required
+            />
+            <input
+               type="url"
+               id="link-url"
+               placeholder="https://..."
+               required
+            />
+            <button type="submit">Añadir</button>
+         </form>
+      </section>
+
+<script src="../JS/scriptsLINKS.js"></script>
+</body>
+</html>
+
+
