@@ -14,7 +14,9 @@
 
 
 const UNSPLASH_KEY = "vbxLEnkJU54zVL1HQdmR-pUvoVmg2cK0cn0chE4qH5c";
-const CHANGE_INTERVAL = 30000; 
+const CHANGE_INTERVAL = 10 * 60 * 1000; // 10 minutos porque, si no, unsplash nos bloquea durante un rato, qué susto cuando
+// desaparecieron los fondos de pantalla, resulta que tengo 50/h con el plan free
+
 
 /* ---------- DETECTAR PÁGINA ---------- */
 function getPageType() {
