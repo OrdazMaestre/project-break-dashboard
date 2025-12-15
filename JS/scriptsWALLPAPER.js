@@ -9,8 +9,6 @@
     es probable que de error cuando esté subida a `github pages`. Revisa tus rutas relativas `./` o `../`
 
 */
- 
-
 
 
 const UNSPLASH_KEY = "vbxLEnkJU54zVL1HQdmR-pUvoVmg2cK0cn0chE4qH5c";
