@@ -105,7 +105,7 @@ body {
   transform: translateY(-4px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
 }
-/*todavia no hemos conseguido que el widget de las contraseñas actue igual al estar sobre la zona del link*/
+/*todavia no he conseguido que el widget de las contraseñas actue igual que el resto al estar sobre la zona de gestionar enlaces*/
 .widget-action {
   display: inline-block;
   padding: 8px 12px;
@@ -187,3 +187,77 @@ body {
   transform: translateY(-4px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
 }
+
+/* ===================================== EL TIEMPO ================================ */
+
+
+.weather-page {
+
+  margin: auto;
+  padding: 20px;
+  background-color: #020617a2;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.weather-current {
+  margin: 20px 0;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.04);
+}
+
+#current-temp {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.weather-forecast {
+  margin-top: 30px;
+}
+
+#forecast-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.forecast-day {
+  background: rgba(255,255,255,0.04);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.forecast-temp {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.forecast-temp .max {
+  font-weight: bold;
+}
+.forecast-temp .min {
+  opacity: 0.6;
+}
+
+/* ===================================== FONFO DE PANTALLA ================================ */
+
+body {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.8s ease-in-out;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+

@@ -6,17 +6,50 @@
     <title>EL TIEMPO</title>
         <link rel="stylesheet" href="../CSS/styles.css">
 </head>
-<body>
+<body class="weather-page">
 
-    <section id="weather-section" class="widget">
-         <h2>El tiempo</h2>
-         <div id="weatherNow"></div>
-         <div id="weatherToday"></div>
-         <div id="weatherWeek"></div>
+
+  <main>
+
+  <section id="weather-section" class="widget weather-page">
+    <h2>EL TIEMPO DE:</h2>
+
+    <div id="current-city"></div>
+  </section>
+
+    <!-- Selector de ciudad -->
+    <form id="city-form">
+      <input
+        type="text"
+        id="city-input"
+        placeholder="Introduce una ciudad"
+        required
+      />
+      <button type="submit">Guardar ciudad</button>
+    </form>
+
+    <!-- Tiempo actual -->
+    <section class="weather-current">
+      <h2 id="current-city"></h2>
+
+      <div class="weather-main">
+        <img id="current-icon" alt="" />
+        <div id="current-temp">--°C</div>
+      </div>
+
+      <div id="current-condition">---</div>
+      <div id="current-feelslike">Sensación térmica: --°C</div>
     </section>
 
+    <!-- Pronóstico -->
+    <section class="weather-forecast">
+      <h2>Próximos días</h2>
+      <div id="forecast-container"></div>
+    </section>
+
+  </main>
+<script src="../JS/scriptsWALLPAPER.js" defer></script>
 <script src="../JS/scriptsWEATHER.js"></script>
 </body>
 </html>
-
 

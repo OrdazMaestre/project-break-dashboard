@@ -6,8 +6,7 @@
 
 */ 
 
-
-
+//creamos el reloj
 function updateClock() {
   const now = new Date();
 
@@ -23,9 +22,11 @@ function updateClock() {
   frases();
 }
 
+//cargamos el reloj y lo modificamos cada 1s o 1000ms
 updateClock();
 setInterval(updateClock, 1000);
 
+//añadimos las frases
 function frases() {
   const hour = new Date().getHours();
   const motivation = document.getElementById('motivation');
@@ -50,3 +51,11 @@ function frases() {
 
   motivation.textContent = text;
 }
+
+/* --------------------------Fondo climatológico reutilizado--------------------------------- */
+localStorage.setItem("weather_last", JSON.stringify({
+  current: data.current,
+  location: data.location,
+  timestamp: Date.now()
+}));
+

@@ -19,7 +19,7 @@ const inputUrl = document.getElementById("link-url");
 
 let links = [];
 
-// CARGAR enlaces desde localStorage
+// Cargar enlaces (desde localStorage)
   function loadLinks() {
 
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -39,15 +39,15 @@ let links = [];
 
   }
 
-// GUARDAR enlaces en localStorage
+// Guardar enlaces (en localStorage)
 
   function saveLinks() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(links));
   }
 
-// RENDER: crear un <li> con el enlace y botón borrar
+// Crear un <li> dentro de la <ul> con el enlace y el botón borrar
 
-  function renderLinkItem(link) {
+  function LinkItem(link) {
     const li = document.createElement("li");
     li.className = "link-item";
     li.dataset.id = String(link.id);
@@ -72,7 +72,7 @@ let links = [];
     return li;
   }
 
-// RENDER ALL: vacía la lista y pinta todos los links
+// Mensaje si no hay links
 
   function renderAll() {
     linksList.innerHTML = "";
@@ -85,12 +85,12 @@ let links = [];
     }
 
     links.forEach(link => {
-      const li = renderLinkItem(link);
+      const li = LinkItem(link);
       linksList.appendChild(li);
     });
   }
 
-// Añadir / mostrar form
+// Añadir / mostrar formulario
 
   addBtn.addEventListener("click", () => {
     form.hidden = !form.hidden;
@@ -111,9 +111,7 @@ let links = [];
 
     // Crear objeto link con id único (timestamp)
     const newLink = {
-      id: Date.now(),
-      title,
-      url
+      id: Date.now(),title,url
     };
 
     links.push(newLink);  // actualizar estado

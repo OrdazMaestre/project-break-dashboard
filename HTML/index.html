@@ -6,7 +6,8 @@
     <title>PROYECTO DASHBOARD FLIPANTE</title>
     <link rel="stylesheet" href="../CSS/styles.css">
 </head>
-<body>
+<body class="weather-page">
+
 
   <main class="dashboard">
 
@@ -17,6 +18,32 @@
          <div id="motivation"></div>
         </section>
      </a>
+
+
+     <a href="weather.html" class="widget-link">
+         <section id="weather-section" class="widget">
+            <h2>TIEMPO</h2>
+            <div id="weather-city">Cargando...</div>
+            <div class="weather-main">
+               <img id="weather-icon" alt="Icono del tiempo" />
+               <div id="weather-temp">--°C</div>
+            </div>
+            <div id="weather-condition">---</div>
+         </section>
+     </a>
+
+     <a href="password.html" class="widget-link">
+         <section id="password-section" class="widget">
+            <h2>CONTRASEÑA</h2>
+
+            <div id="password-preview">••••••••••••</div>
+
+            <button id="generate-password-btn">
+               Generar contraseña
+            </button>
+         </section>
+     </a>
+
 
      <section id="links-section" class="widget">
        <h2>ENLACES</h2>
@@ -38,27 +65,8 @@
             />
             <button type="submit">Añadir</button>
          </form>
-      </section>
+     </section>
 
-
-
-     <a href="weather.html" class="widget-link">
-        <section id="weather-section" class="widget">
-         <h2>El tiempo</h2>
-         <div id="weatherNow"></div>
-         <div id="weatherToday"></div>
-         <div id="weatherWeek"></div>
-        </section>
-     </a>
-
-     <a href="password.html" class="widget-link">
-        <section id="password-section" class="widget">
-         <h2>Crea tu contraseña</h2>
-         <div id="Nueva contraseña"></div>
-         <div id="Contraseña anterior"></div>
-         <div id="Historial"></div>
-        </section>
-     </a>
 
   </main>
 
@@ -70,3 +78,5 @@
 
 </body>
 </html>
+
+
